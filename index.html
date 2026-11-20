@@ -1,11 +1,229 @@
-<!DOCTYPE html>
-<!-- saved from url=(0110)file:///C:/Users/david/OneDrive/Documents/ChatGPT/OLDER%20ADULTS/sites/nurs2524-test1-practice/dist/index.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#173c5e">
   <title>Health and Healing Older Adults Test 1 Practice</title>
-  <link rel="stylesheet" href="./Health and Healing Older Adults Test 1 Practice_files/styles.css">
+  <style>
+:root {
+  color-scheme: light;
+  --navy: #173c5e;
+  --navy-dark: #0e2a43;
+  --teal: #167d79;
+  --teal-soft: #dff3f1;
+  --gold: #d99a2b;
+  --ink: #17212b;
+  --muted: #5d6a75;
+  --line: #d8e0e6;
+  --paper: #ffffff;
+  --background: #eef3f6;
+  --success: #197448;
+  --success-soft: #e1f3e9;
+  --danger: #a33a3a;
+  --danger-soft: #fae8e8;
+  --shadow: 0 18px 45px rgba(23, 60, 94, 0.12);
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(22, 125, 121, 0.11), transparent 28rem),
+    linear-gradient(180deg, #f7fafb 0, var(--background) 35rem);
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+button, input { font: inherit; }
+button { cursor: pointer; }
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1rem clamp(1.25rem, 4vw, 4rem);
+  background: var(--navy-dark);
+  color: white;
+}
+
+.brand, .header-meta { display: flex; align-items: center; gap: 0.9rem; }
+.brand { flex-wrap: wrap; }
+.course-code {
+  padding: 0.3rem 0.65rem;
+  border: 1px solid rgba(255,255,255,.42);
+  border-radius: 999px;
+  font-weight: 800;
+  letter-spacing: .06em;
+}
+.header-meta { color: #dce8f0; font-variant-numeric: tabular-nums; }
+.header-meta span + span { border-left: 1px solid rgba(255,255,255,.25); padding-left: .9rem; }
+
+main { width: min(1180px, calc(100% - 2rem)); margin: 0 auto; padding: clamp(2rem, 5vw, 4rem) 0; }
+
+.welcome-panel, .results-panel {
+  width: min(830px, 100%);
+  margin: 0 auto;
+  padding: clamp(1.6rem, 4vw, 3.5rem);
+  border: 1px solid rgba(23, 60, 94, .1);
+  border-radius: 1.4rem;
+  background: rgba(255,255,255,.94);
+  box-shadow: var(--shadow);
+}
+
+.eyebrow {
+  margin: 0 0 .55rem;
+  color: var(--teal);
+  font-weight: 800;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+h1 { margin: 0; color: var(--navy-dark); font-size: clamp(2rem, 5vw, 3.6rem); line-height: 1.08; letter-spacing: -.035em; }
+.intro { max-width: 66ch; color: var(--muted); font-size: 1.12rem; }
+
+.blueprint {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .75rem;
+  margin: 2rem 0;
+}
+.blueprint div {
+  padding: 1rem;
+  border-top: 3px solid var(--teal);
+  background: #f2f7f8;
+  border-radius: .25rem .25rem .8rem .8rem;
+}
+.blueprint strong { display: block; color: var(--navy); font-size: 1.7rem; }
+.blueprint span { color: var(--muted); }
+
+.mode-choice { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; margin: 1.5rem 0; }
+.mode-choice label {
+  display: flex;
+  gap: .75rem;
+  align-items: flex-start;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: .8rem;
+  background: white;
+}
+.mode-choice label:has(input:checked) { border-color: var(--teal); background: var(--teal-soft); }
+.mode-choice input { margin-top: .3rem; accent-color: var(--teal); }
+.mode-choice strong, .mode-choice span { display: block; }
+.mode-choice span span { color: var(--muted); }
+
+.primary-button, .secondary-button {
+  min-height: 2.85rem;
+  padding: .72rem 1.2rem;
+  border-radius: .65rem;
+  font-weight: 750;
+}
+.primary-button { border: 1px solid var(--navy); background: var(--navy); color: white; }
+.primary-button:hover { background: var(--navy-dark); }
+.secondary-button { border: 1px solid var(--navy); background: white; color: var(--navy); }
+.secondary-button:hover { background: #edf4f8; }
+.primary-button:focus-visible, .secondary-button:focus-visible, .text-button:focus-visible, .flag-button:focus-visible, .grid-button:focus-visible { outline: 3px solid rgba(217,154,43,.55); outline-offset: 2px; }
+.small-note { color: var(--muted); font-size: .9rem; }
+
+.quiz-layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 1.4rem; align-items: start; }
+.question-nav, .question-card {
+  border: 1px solid rgba(23,60,94,.12);
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+.question-nav { position: sticky; top: 1rem; padding: 1.1rem; border-radius: 1rem; }
+.nav-heading { display: flex; justify-content: space-between; align-items: center; font-weight: 800; color: var(--navy); }
+.text-button { border: 0; background: transparent; color: var(--teal); font-size: .88rem; padding: .25rem; }
+.question-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: .45rem; margin: 1rem 0; }
+.grid-button {
+  aspect-ratio: 1;
+  border: 1px solid var(--line);
+  border-radius: .45rem;
+  background: white;
+  color: var(--navy);
+  font-weight: 700;
+}
+.grid-button.answered { background: var(--teal-soft); border-color: var(--teal); }
+.grid-button.current { color: white; background: var(--navy); border-color: var(--navy); }
+.grid-button.flagged { box-shadow: inset 0 -4px var(--gold); }
+.legend { display: grid; gap: .35rem; color: var(--muted); font-size: .78rem; }
+.legend span { display: flex; align-items: center; gap: .45rem; }
+.legend i { width: .8rem; height: .8rem; border-radius: .2rem; border: 1px solid var(--line); }
+.current-key { background: var(--navy); }.answered-key { background: var(--teal-soft); border-color: var(--teal) !important; }.flagged-key { background: linear-gradient(180deg, white 55%, var(--gold) 55%); }
+
+.question-card { min-height: 610px; padding: clamp(1.4rem, 4vw, 3rem); border-radius: 1.2rem; }
+.question-topline, .question-actions { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.week-badge { padding: .3rem .65rem; border-radius: 999px; background: var(--teal-soft); color: #0b5e5b; font-weight: 800; }
+.flag-button { border: 1px solid var(--line); border-radius: .55rem; padding: .45rem .7rem; background: white; color: var(--muted); }
+.flag-button[aria-pressed="true"] { border-color: var(--gold); background: #fff4dc; color: #775013; }
+.question-number { margin: 2rem 0 .35rem; color: var(--muted); font-weight: 700; }
+.question-card h2 { margin: 0 0 1.5rem; color: var(--ink); font-size: clamp(1.25rem, 2.7vw, 1.7rem); line-height: 1.4; }
+.options { display: grid; gap: .75rem; padding: 0; border: 0; }
+.option {
+  display: grid;
+  grid-template-columns: 1.25rem 2rem minmax(0, 1fr);
+  gap: .75rem;
+  align-items: start;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: .8rem;
+  background: white;
+}
+.option:hover { border-color: #8aa4b8; background: #f8fbfc; }
+.option:has(input:checked) { border-color: var(--navy); background: #edf4f8; }
+.option input { margin-top: .35rem; accent-color: var(--navy); }
+.option-letter { display: inline-grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; background: #edf2f5; color: var(--navy); font-weight: 800; }
+.option.correct { border-color: var(--success); background: var(--success-soft); }
+.option.incorrect { border-color: var(--danger); background: var(--danger-soft); }
+.feedback { margin: 1.25rem 0 0; padding: 1rem 1.1rem; border-left: 4px solid var(--teal); background: #f1f8f7; border-radius: .35rem .7rem .7rem .35rem; }
+.feedback strong { color: var(--navy); }
+.question-actions { margin-top: 2rem; }
+
+.week-results { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; margin: 2rem 0; }
+.week-result { padding: 1rem; border-top: 3px solid var(--teal); background: #f2f7f8; border-radius: .25rem .25rem .8rem .8rem; }
+.week-result strong { display: block; color: var(--navy); font-size: 1.4rem; }
+.result-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+.review-list { display: grid; gap: 1rem; margin-top: 2rem; }
+.review-item { padding: 1.1rem; border: 1px solid var(--line); border-radius: .8rem; background: white; }
+.review-item.correct { border-left: 5px solid var(--success); }.review-item.incorrect { border-left: 5px solid var(--danger); }
+.review-item h3 { margin: 0 0 .5rem; font-size: 1rem; color: var(--navy); }
+.review-item p { margin: .4rem 0; }
+.review-item .rationale { color: var(--muted); }
+
+footer { padding: 2rem 1rem 3rem; text-align: center; color: var(--muted); font-size: .9rem; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+@media (max-width: 780px) {
+  .site-header { align-items: flex-start; }
+  .header-meta { flex-direction: column; align-items: flex-end; gap: .1rem; }
+  .header-meta span + span { border-left: 0; padding-left: 0; }
+  .quiz-layout { grid-template-columns: 1fr; }
+  .question-nav { position: static; }
+  .question-grid { grid-template-columns: repeat(8, 1fr); }
+  .legend { grid-template-columns: repeat(3, auto); }
+}
+
+@media (max-width: 560px) {
+  main { width: min(100% - 1rem, 1180px); padding-top: 1rem; }
+  .site-header { padding: .85rem 1rem; }
+  .brand > span:last-child { display: none; }
+  .blueprint { grid-template-columns: 1fr 1fr; }
+  .mode-choice { grid-template-columns: 1fr; }
+  .question-grid { grid-template-columns: repeat(5, 1fr); }
+  .legend { grid-template-columns: 1fr; }
+  .question-card { padding: 1.2rem; }
+  .question-actions { flex-wrap: wrap; }
+  .question-actions button { flex: 1; }
+  .week-results { grid-template-columns: 1fr; }
+}
+
+</style>
 </head>
 <body>
   <header class="site-header">
@@ -14,13 +232,13 @@
       <span>Health and Healing II · Older Adult</span>
     </div>
     <div class="header-meta" aria-live="polite">
-      <span id="timer">10:28</span>
-      <span id="answered-count">1 of 40 answered</span>
+      <span id="timer">00:00</span>
+      <span id="answered-count">0 of 40 answered</span>
     </div>
   </header>
 
   <main>
-    <section id="welcome" class="welcome-panel" hidden="">
+    <section id="welcome" class="welcome-panel">
       <p class="eyebrow">Test 1 · Weeks 1–3</p>
       <h1>Health and Healing Older Adults Test 1 Practice</h1>
       <p class="intro">Each attempt draws 40 scenario-based questions from a verified 120-question bank. The bank was matched to the Week 1–3 PowerPoints and assigned chapters; the RNAO readings are not included.</p>
@@ -30,21 +248,18 @@
         <div><strong>10</strong><span>Week 3</span></div>
         <div><strong>40</strong><span>Total</span></div>
       </div>
-      <div class="mode-choice">
-        <label><input type="radio" name="mode" value="exam" checked=""> <span><strong>Exam mode</strong>See results after all questions</span></label>
-        <label><input type="radio" name="mode" value="practice"> <span><strong>Practice mode</strong>Check each answer immediately</span></label>
-      </div>
+      <p class="small-note"><strong>Practice format:</strong> Check every answer as you go and review the explanation before continuing.</p>
       <button id="start-button" class="primary-button" type="button">Start practice test</button>
       <p class="small-note">Your progress is saved automatically on this device. “Try a new attempt” draws a fresh set from the bank.</p>
     </section>
 
-    <section id="quiz" class="quiz-layout">
+    <section id="quiz" class="quiz-layout" hidden>
       <aside class="question-nav" aria-label="Question navigation">
         <div class="nav-heading">
           <span>Questions</span>
           <button id="clear-button" class="text-button" type="button">Start over</button>
         </div>
-        <div id="question-grid" class="question-grid"><button type="button" class="grid-button answered" aria-label="Go to question 1" aria-current="false">1</button><button type="button" class="grid-button current" aria-label="Go to question 2" aria-current="step">2</button><button type="button" class="grid-button" aria-label="Go to question 3" aria-current="false">3</button><button type="button" class="grid-button" aria-label="Go to question 4" aria-current="false">4</button><button type="button" class="grid-button" aria-label="Go to question 5" aria-current="false">5</button><button type="button" class="grid-button" aria-label="Go to question 6" aria-current="false">6</button><button type="button" class="grid-button" aria-label="Go to question 7" aria-current="false">7</button><button type="button" class="grid-button" aria-label="Go to question 8" aria-current="false">8</button><button type="button" class="grid-button" aria-label="Go to question 9" aria-current="false">9</button><button type="button" class="grid-button" aria-label="Go to question 10" aria-current="false">10</button><button type="button" class="grid-button" aria-label="Go to question 11" aria-current="false">11</button><button type="button" class="grid-button" aria-label="Go to question 12" aria-current="false">12</button><button type="button" class="grid-button" aria-label="Go to question 13" aria-current="false">13</button><button type="button" class="grid-button" aria-label="Go to question 14" aria-current="false">14</button><button type="button" class="grid-button" aria-label="Go to question 15" aria-current="false">15</button><button type="button" class="grid-button" aria-label="Go to question 16" aria-current="false">16</button><button type="button" class="grid-button" aria-label="Go to question 17" aria-current="false">17</button><button type="button" class="grid-button" aria-label="Go to question 18" aria-current="false">18</button><button type="button" class="grid-button" aria-label="Go to question 19" aria-current="false">19</button><button type="button" class="grid-button" aria-label="Go to question 20" aria-current="false">20</button><button type="button" class="grid-button" aria-label="Go to question 21" aria-current="false">21</button><button type="button" class="grid-button" aria-label="Go to question 22" aria-current="false">22</button><button type="button" class="grid-button" aria-label="Go to question 23" aria-current="false">23</button><button type="button" class="grid-button" aria-label="Go to question 24" aria-current="false">24</button><button type="button" class="grid-button" aria-label="Go to question 25" aria-current="false">25</button><button type="button" class="grid-button" aria-label="Go to question 26" aria-current="false">26</button><button type="button" class="grid-button" aria-label="Go to question 27" aria-current="false">27</button><button type="button" class="grid-button" aria-label="Go to question 28" aria-current="false">28</button><button type="button" class="grid-button" aria-label="Go to question 29" aria-current="false">29</button><button type="button" class="grid-button" aria-label="Go to question 30" aria-current="false">30</button><button type="button" class="grid-button" aria-label="Go to question 31" aria-current="false">31</button><button type="button" class="grid-button" aria-label="Go to question 32" aria-current="false">32</button><button type="button" class="grid-button" aria-label="Go to question 33" aria-current="false">33</button><button type="button" class="grid-button" aria-label="Go to question 34" aria-current="false">34</button><button type="button" class="grid-button" aria-label="Go to question 35" aria-current="false">35</button><button type="button" class="grid-button" aria-label="Go to question 36" aria-current="false">36</button><button type="button" class="grid-button" aria-label="Go to question 37" aria-current="false">37</button><button type="button" class="grid-button" aria-label="Go to question 38" aria-current="false">38</button><button type="button" class="grid-button" aria-label="Go to question 39" aria-current="false">39</button><button type="button" class="grid-button" aria-label="Go to question 40" aria-current="false">40</button></div>
+        <div id="question-grid" class="question-grid"></div>
         <div class="legend">
           <span><i class="current-key"></i>Current</span>
           <span><i class="answered-key"></i>Answered</span>
@@ -54,37 +269,2314 @@
 
       <article class="question-card">
         <div class="question-topline">
-          <span id="week-badge" class="week-badge">Week 3</span>
+          <span id="week-badge" class="week-badge"></span>
           <button id="flag-button" class="flag-button" type="button" aria-pressed="false">Flag for review</button>
         </div>
-        <p id="question-number" class="question-number">Question 2 of 40</p>
-        <h2 id="question-text">A client develops heart failure and moves from hospital to home with new nursing supports. How should the nurse classify this change?</h2>
-        <fieldset id="options" class="options"><legend class="sr-only">Answer choices</legend><label class="option"><input type="radio" name="question-65" value="0"><span class="option-letter">A</span><span>Developmental transition</span></label><label class="option"><input type="radio" name="question-65" value="1"><span class="option-letter">B</span><span>Health–illness transition</span></label><label class="option"><input type="radio" name="question-65" value="2"><span class="option-letter">C</span><span>Situational transition</span></label><label class="option"><input type="radio" name="question-65" value="3"><span class="option-letter">D</span><span>Normal physiological aging</span></label></fieldset>
-        <div id="feedback" class="feedback" hidden=""></div>
+        <p id="question-number" class="question-number"></p>
+        <h2 id="question-text"></h2>
+        <fieldset id="options" class="options">
+          <legend class="sr-only">Answer choices</legend>
+        </fieldset>
+        <div id="feedback" class="feedback" hidden></div>
         <div class="question-actions">
           <button id="previous-button" class="secondary-button" type="button">Previous</button>
-          <button id="check-button" class="secondary-button" type="button" hidden="">Check answer</button>
+          <button id="check-button" class="secondary-button" type="button" hidden>Check answer</button>
           <button id="next-button" class="primary-button" type="button">Next</button>
         </div>
       </article>
     </section>
 
-    <section id="results" class="results-panel" hidden="">
+    <section id="results" class="results-panel" hidden>
       <p class="eyebrow">Results</p>
       <h1 id="result-heading"></h1>
       <p id="result-summary" class="intro"></p>
       <div id="week-results" class="week-results"></div>
       <div class="result-actions">
         <button id="review-button" class="secondary-button" type="button">Review answers</button>
+        <button id="retest-button" class="secondary-button" type="button">Retest incorrect answers</button>
         <button id="retry-button" class="primary-button" type="button">Try a new attempt</button>
       </div>
-      <div id="review-list" class="review-list" hidden=""></div>
+      <div id="review-list" class="review-list" hidden></div>
     </section>
   </main>
 
   <footer>120-question bank · matched to the supplied Week 1–3 PowerPoints and assigned chapters.</footer>
-  <script src="./Health and Healing Older Adults Test 1 Practice_files/questions.js"></script>
-  <script src="./Health and Healing Older Adults Test 1 Practice_files/app.js"></script>
+  <script>
+window.TEST_QUESTIONS = [
+  {
+    "id": 1,
+    "week": 1,
+    "question": "A community program is reviewing its services for a 73-year-old client who lives independently, volunteers twice weekly and manages two chronic illnesses. During the meeting, a staff member says, “At his age, decline is inevitable, so independence is probably temporary.” Which response by the nurse best reflects the course approach to healthy aging?",
+    "options": [
+      "“His chronological age places him in the middle-old group, so decline should be anticipated.”",
+      "“Healthy aging can include chronic illness when health, function, independence and quality of life are optimized.”",
+      "“A person is considered healthy only when chronic disease no longer limits activity.”",
+      "“His volunteer work suggests that the effects of biological aging have not yet begun.”"
+    ],
+    "answer": 1,
+    "rationale": "Healthy aging focuses on optimizing health, function, independence, well-being and life transitions; chronic illness does not automatically exclude healthy aging.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 2,
+    "week": 1,
+    "question": "During an admission interview, an older client pauses before answering. The nurse turns to the client’s daughter and says loudly, “Sweetie seems tired. Can you answer for her?” Which action by a second nurse is most appropriate?",
+    "options": [
+      "Ask the daughter to continue because family reports are more reliable",
+      "Repeat every question at a higher volume",
+      "Redirect the conversation to the client, allow additional response time and assess communication needs",
+      "Complete the interview later without the daughter present"
+    ],
+    "answer": 2,
+    "rationale": "The competent client remains the primary communication partner. Extra time and an assessment of hearing, vision or other needs preserve autonomy.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 3,
+    "week": 1,
+    "question": "A student states, “Ageism is mainly the use of insulting words about older people.” Which clinical example best demonstrates a broader understanding of ageism?",
+    "options": [
+      "Offering a large-print menu to a client with reduced vision",
+      "Assuming rehabilitation will not benefit a client because the client is 89",
+      "Asking a client which name and pronouns they prefer",
+      "Allowing extra time for a client to answer questions"
+    ],
+    "answer": 1,
+    "rationale": "Ageism includes stereotypes, prejudice and discriminatory action. Denying rehabilitation based on age is discriminatory.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 4,
+    "week": 1,
+    "question": "An instructor describes accumulated cellular injury caused by unstable molecules that damage DNA, proteins and lipids over time. Which theory is being applied?",
+    "options": [
+      "Programmed aging theory",
+      "Oxidative stress or free-radical theory",
+      "Disengagement theory",
+      "Continuity theory"
+    ],
+    "answer": 1,
+    "rationale": "Oxidative stress is a stochastic theory in which accumulated free-radical damage contributes to aging.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 5,
+    "week": 1,
+    "question": "Researchers propose that aging follows a predetermined biological timetable regulated at the cellular level. Which category best fits this explanation?",
+    "options": [
+      "Stochastic theory",
+      "Social exchange theory",
+      "Non-stochastic theory",
+      "Activity theory"
+    ],
+    "answer": 2,
+    "rationale": "Non-stochastic theories describe aging as programmed or predetermined at the cellular level.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 6,
+    "week": 1,
+    "question": "A nurse collaborates with an older client to learn what matters to the client before changing the care plan. The nurse explores the client’s life story, preferences and goals instead of focusing only on diagnoses. Which CGNA standard is most directly demonstrated?",
+    "options": [
+      "Relational care",
+      "Socio-politically engaged care",
+      "Evidence-informed care",
+      "Safe care"
+    ],
+    "answer": 0,
+    "rationale": "Relational care begins with knowing the person and building care around the therapeutic relationship.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 7,
+    "week": 1,
+    "question": "An 82-year-old client has recently become inattentive during conversation. The family says, “It is just age-related hearing loss.” What should the nurse do first?",
+    "options": [
+      "Speak directly into the client’s ear",
+      "Arrange a cochlear implant consultation",
+      "Assess for reversible causes such as cerumen, infection or middle-ear fluid",
+      "Ask the family to interpret all instructions"
+    ],
+    "answer": 2,
+    "rationale": "Hearing difficulty should not automatically be attributed to aging. Conductive and potentially reversible causes require assessment.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 8,
+    "week": 1,
+    "question": "A competent client with presbycusis and macular degeneration is completing an intake interview with a daughter present. Which setup is best?",
+    "options": [
+      "Dim the room, stand behind the client and ask the daughter to repeat questions",
+      "Reduce background noise, face the client at eye level and ensure prescribed sensory aids are available",
+      "Use written questions in small print to protect privacy",
+      "Speak rapidly in a high-pitched voice so the interview takes less time"
+    ],
+    "answer": 1,
+    "rationale": "Reduced noise, face-to-face positioning, suitable lighting and working sensory aids support communication while keeping the client central.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 9,
+    "week": 1,
+    "question": "Following a stroke, a client understands the nurse but struggles to produce words. The client becomes frustrated when staff finish every sentence. Which intervention is best?",
+    "options": [
+      "Assume impaired reasoning and use only yes-or-no questions",
+      "Allow time, use supportive verbal and non-verbal methods and consult speech-language pathology",
+      "Correct each error immediately to retrain speech",
+      "Direct all care discussions to the substitute decision-maker"
+    ],
+    "answer": 1,
+    "rationale": "Aphasia may impair expression without eliminating cognition. Time, supportive methods and speech-language consultation promote communication.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 10,
+    "week": 1,
+    "question": "A client’s speech is slow and slurred because of weak, poorly coordinated speech muscles, but the client understands questions and writes appropriate responses. Which finding best explains the problem?",
+    "options": [
+      "Aphasia",
+      "Dysarthria",
+      "Receptive impairment caused by anxiety",
+      "Cognitive impairment"
+    ],
+    "answer": 1,
+    "rationale": "Dysarthria results from weakness or poor coordination of the muscles needed for speech.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 11,
+    "week": 1,
+    "question": "A resident with cognitive impairment becomes withdrawn after moving to long-term care. Which activity best uses reminiscing therapeutically?",
+    "options": [
+      "Repeatedly quiz the resident about the current date",
+      "Use familiar music and photographs with open-ended invitations to share memories",
+      "Correct inaccurate details in the resident’s stories",
+      "Avoid discussion of the past because it may reinforce confusion"
+    ],
+    "answer": 1,
+    "rationale": "Familiar music, photographs and open-ended questions can support connection, communication and cognitive stimulation.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 12,
+    "week": 1,
+    "question": "An older client nods throughout medication teaching but cannot explain the new schedule afterward. Which nursing response best supports therapeutic communication?",
+    "options": [
+      "Document agreement because the client nodded",
+      "Give the same explanation more loudly",
+      "Clarify the information and ask the client to explain the plan in their own words",
+      "Provide written instructions and end the session"
+    ],
+    "answer": 2,
+    "rationale": "Clarification and teach-back verify understanding more reliably than nodding or simply supplying written material.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 13,
+    "week": 2,
+    "question": "A resident with early dementia has lost 3 kg since admission. At home, she prepared meals with family, but in the facility she becomes disoriented in the dining room and eats alone. Which intervention best addresses the likely contributors to poor intake?",
+    "options": [
+      "Serve all meals in her room to prevent distraction",
+      "Offer familiar foods and supportive mealtime participation in a calm, recognizable setting",
+      "Replace meals with supplements without further assessment",
+      "Restrict family involvement until she adapts to institutional routines"
+    ],
+    "answer": 1,
+    "rationale": "The plan addresses cognitive, social and environmental contributors while preserving familiar roles and person-centred mealtime support.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 14,
+    "week": 2,
+    "question": "During an oral assessment, the nurse notes food trapped under dentures, red gums, halitosis and grimacing while chewing. Which action is the priority?",
+    "options": [
+      "Record the findings as expected effects of dentures",
+      "Complete a structured oral-health assessment, provide denture and mouth care, and arrange appropriate dental follow-up",
+      "Remove the dentures permanently",
+      "Change the client to clear fluids until the redness resolves"
+    ],
+    "answer": 1,
+    "rationale": "Pain, inflammation, debris and halitosis require structured assessment, oral/denture care and appropriate referral rather than normalization.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 15,
+    "week": 2,
+    "question": "A client has dark urine, dry axillae, dizziness, tachycardia and reduced oral intake but remains alert and can swallow safely. Which initial intervention is most appropriate?",
+    "options": [
+      "Begin oral rehydration while assessing and treating the cause",
+      "Restrict fluids to prevent urinary urgency",
+      "Start IV fluids without assessing severity",
+      "Offer caffeinated drinks because they are preferred"
+    ],
+    "answer": 0,
+    "rationale": "Oral rehydration is first-line when the person can safely tolerate fluids; severity and underlying causes still require assessment.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 16,
+    "week": 2,
+    "question": "A woman’s usual daily fluid goal is 2.7 L. Yesterday she consumed 2.0 L and then lost approximately 1.0 L through vomiting and diarrhea. Compared with her goal, what is her estimated fluid deficit?",
+    "options": [
+      "700 mL",
+      "1,000 mL",
+      "1,700 mL",
+      "3,700 mL"
+    ],
+    "answer": 2,
+    "rationale": "Net fluid after the loss is 1.0 L; compared with the 2.7 L goal, the deficit is 1.7 L.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 17,
+    "week": 2,
+    "question": "A resident recognizes the urge to void and has normal bladder control, but arthritis and a distant bathroom prevent her from reaching the toilet in time. Which type of incontinence is most likely?",
+    "options": [
+      "Stress",
+      "Urgency",
+      "Functional",
+      "Mixed"
+    ],
+    "answer": 2,
+    "rationale": "Functional incontinence occurs when bladder control is intact but physical, cognitive or environmental barriers prevent timely toileting.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 18,
+    "week": 2,
+    "question": "A client reports a sudden compelling need to void followed by moderate urine loss before reaching the toilet. Postvoid residual is low. Which finding is most consistent with this presentation?",
+    "options": [
+      "Urgency incontinence",
+      "Stress incontinence",
+      "High postvoid residual incontinence",
+      "Functional incontinence"
+    ],
+    "answer": 0,
+    "rationale": "Sudden compelling urgency followed by moderate loss and low residual volume indicates urgency incontinence.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 19,
+    "week": 2,
+    "question": "An older man with an enlarged prostate has hesitancy, a weak stream, frequent dribbling and a feeling that his bladder never empties. Which assessment finding would the nurse expect?",
+    "options": [
+      "Low postvoid residual",
+      "Large postvoid residual",
+      "Urine loss only with coughing",
+      "Normal bladder emptying with environmental barriers"
+    ],
+    "answer": 1,
+    "rationale": "Hesitancy, weak stream, dribbling, incomplete emptying and prostatic obstruction suggest a large postvoid residual.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 20,
+    "week": 2,
+    "question": "A bed-bound resident with chronic constipation begins passing small amounts of liquid stool. A new nurse proposes an antidiarrheal. What is the best response?",
+    "options": [
+      "Give the antidiarrheal before the next loose stool",
+      "Assess for fecal impaction before treating the apparent diarrhea",
+      "Stop all fluids until the stool is formed",
+      "Begin psyllium without reviewing mobility or hydration"
+    ],
+    "answer": 1,
+    "rationale": "Liquid stool can pass around an impaction. Antidiarrheals may worsen the obstruction, so impaction must be assessed first.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 21,
+    "week": 2,
+    "question": "A resident reports frequent awakening, prolonged sleep latency and daytime napping. Which nursing action provides the best basis for an individualized plan?",
+    "options": [
+      "Request a sedative immediately",
+      "Assess sleep habits, contributing conditions and medications, and use a sleep log or appropriate scale",
+      "Keep the resident in bed longer each morning",
+      "Eliminate daytime activity to conserve energy"
+    ],
+    "answer": 1,
+    "rationale": "A sleep history, contributing-factor assessment and sleep record provide the information needed for an individualized plan.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 22,
+    "week": 2,
+    "question": "A client has difficulty sleeping but no urgent medical cause is found. Which plan best reflects recommended sleep hygiene?",
+    "options": [
+      "Encourage long afternoon naps and evening caffeine",
+      "Establish a regular bedtime routine, promote daytime activity and light exposure, and limit naps",
+      "Recommend alcohol before bed and reduce daytime fluids completely",
+      "Keep the television on overnight to reduce loneliness"
+    ],
+    "answer": 1,
+    "rationale": "A consistent routine, daytime activity/light exposure and limited naps support sleep without immediately relying on medication.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 23,
+    "week": 2,
+    "question": "A frail resident has thin limbs, reduced strength and difficulty rising from a chair. Which interpretation and intervention are most appropriate?",
+    "options": [
+      "Normal inactivity; encourage bed rest to prevent injury",
+      "Sarcopenia; begin an individualized activity and strengthening plan within the resident’s abilities",
+      "Acute arthritis; avoid all weight-bearing activity",
+      "Expected old-old age; no intervention is indicated"
+    ],
+    "answer": 1,
+    "rationale": "Sarcopenia involves loss of skeletal muscle mass, strength and function. Individualized activity can preserve or improve function.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 24,
+    "week": 2,
+    "question": "A client’s lower legs are dry and itchy, with scratch marks but no infection. Which intervention best addresses xerosis?",
+    "options": [
+      "Use hot water and deodorant soap twice daily",
+      "Promote hydration and humidification and use mild super-fatted soap with an emollient",
+      "Apply alcohol-based lotion after bathing",
+      "Encourage sun exposure to improve skin circulation"
+    ],
+    "answer": 1,
+    "rationale": "Hydration, humidification, gentle cleansing and emollients reduce moisture loss and irritation associated with xerosis.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 25,
+    "week": 2,
+    "question": "During foot care, the nurse sees thick yellow toenails and notes that the client’s shoes are tight. The client has an unsteady gait. Which plan is best?",
+    "options": [
+      "Ignore the nails because fungal changes do not affect function",
+      "Assess the feet and footwear, arrange appropriate foot-care follow-up, and address the fall risk",
+      "Cut the nails deeply at the corners and advise smaller shoes",
+      "Recommend walking barefoot indoors"
+    ],
+    "answer": 1,
+    "rationale": "Foot problems and unsuitable footwear can impair mobility and increase fall risk; assessment and appropriate follow-up are required.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 26,
+    "week": 2,
+    "question": "A client takes nine prescriptions, two over-the-counter sleep products and several herbal remedies. Two prescriptions have the same therapeutic purpose. Which conclusion is most accurate?",
+    "options": [
+      "Polypharmacy refers only to taking more than ten prescriptions",
+      "The duplicated and potentially unnecessary therapies are consistent with polypharmacy",
+      "Herbal remedies are excluded from medication assessment",
+      "Polypharmacy exists only when an adverse reaction has already occurred"
+    ],
+    "answer": 1,
+    "rationale": "Polypharmacy includes duplicated, contraindicated, inappropriate or unnecessary medications, not merely a specific number of prescriptions.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 27,
+    "week": 2,
+    "question": "A client is transferred from home to hospital. The medication list in the chart differs from the bottles brought by the family. What should the nurse do first in medication reconciliation?",
+    "options": [
+      "Discard the home medications and use the hospital list",
+      "Obtain a Best Possible Medication History from the client, family and available medication sources",
+      "Ask the prescriber to choose one list without further investigation",
+      "Hold every medication until discharge"
+    ],
+    "answer": 1,
+    "rationale": "Medication reconciliation begins by establishing the most accurate and complete list possible, including prescription, OTC and complementary products.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 28,
+    "week": 2,
+    "question": "A malnourished older adult with reduced total body water and increased body fat receives a water-soluble medication and a long-acting lipid-soluble sedative. Which effect is most concerning?",
+    "options": [
+      "Lower serum concentration of the water-soluble drug and faster sedative clearance",
+      "Higher serum concentration of the water-soluble drug and prolonged storage of the lipid-soluble drug",
+      "No change because aging does not affect distribution",
+      "Increased albumin binding that prevents toxicity"
+    ],
+    "answer": 1,
+    "rationale": "Reduced body water may raise concentrations of water-soluble drugs, while increased fat can prolong the effects of lipid-soluble drugs.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 29,
+    "week": 2,
+    "question": "A resident has fallen twice, takes a sedative and an antihypertensive, walks to the bathroom urgently at night and fears losing independence. Which plan is best?",
+    "options": [
+      "Apply a restraint and instruct the resident not to walk alone",
+      "Use an individualized multifactorial plan addressing medications, continence, mobility and environmental hazards",
+      "Remove the call bell so the resident remains in bed",
+      "Focus only on footwear because falls have a single cause"
+    ],
+    "answer": 1,
+    "rationale": "Falls usually have multiple interacting causes. The plan should reduce risk while maintaining mobility and independence.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 30,
+    "week": 2,
+    "question": "An older driver reports two near collisions and difficulty seeing road signs at dusk. The client fears that telling the nurse will automatically end driving privileges. Which nursing response is best?",
+    "options": [
+      "Reassure the client that age never affects driving ability",
+      "Explore vision, cognition, medications and driving events, provide safety education, and arrange appropriate assessment or referral",
+      "Tell the family to remove the car immediately",
+      "Avoid the subject because driving is unrelated to health care"
+    ],
+    "answer": 1,
+    "rationale": "A comprehensive, respectful assessment identifies modifiable risks and supports an appropriate referral rather than making an age-based decision.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 31,
+    "week": 3,
+    "question": "A client retires, later develops heart failure and is then discharged from hospital to home with new supports. How should the nurse classify these changes?",
+    "options": [
+      "All are situational transitions",
+      "Retirement is developmental; heart failure and the care-setting change are health-illness transitions",
+      "Retirement is health-illness; heart failure is developmental",
+      "All are expected physiological changes rather than transitions"
+    ],
+    "answer": 1,
+    "rationale": "Retirement is developmental. Chronic illness and movement between care settings are health-illness transitions.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 3 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 32,
+    "week": 3,
+    "question": "Two clients experience the same move to assisted living. One planned the move, can afford it and has nearby friends. The other experienced an abrupt move after a crisis and lacks social support. Which interpretation is best?",
+    "options": [
+      "The transition should affect both clients equally because the destination is the same",
+      "Personal meaning, expectations, planning, resources and social conditions influence transition outcomes",
+      "Only physical health determines adaptation",
+      "Distress means the transition is abnormal"
+    ],
+    "answer": 1,
+    "rationale": "Meaning, expectations, knowledge, planning, socioeconomic status and emotional, physical and social resources shape adaptation.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 3 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 33,
+    "week": 3,
+    "question": "A retired teacher reports feeling most satisfied when tutoring children and participating in a walking group. Which theory best explains the benefit?",
+    "options": [
+      "Activity theory",
+      "Disengagement theory",
+      "Modernization theory",
+      "Programmed aging theory"
+    ],
+    "answer": 0,
+    "rationale": "Activity theory proposes that continued meaningful activity supports successful aging.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 3 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 34,
+    "week": 3,
+    "question": "A widower adapts to retirement by maintaining the routines, values and coping style that guided him throughout adulthood. Which theory best fits this pattern?",
+    "options": [
+      "Age-stratification theory",
+      "Continuity theory",
+      "Social exchange theory",
+      "Gerotranscendence"
+    ],
+    "answer": 1,
+    "rationale": "Continuity theory emphasizes carrying established patterns, values and coping approaches into later life.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 3 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 35,
+    "week": 3,
+    "question": "A family dismisses an older relative’s knowledge of finances because banking is now digital and assumes the relative has nothing useful to contribute. Which theory best explains this devaluation?",
+    "options": [
+      "Modernization theory",
+      "Activity theory",
+      "Jung’s theory",
+      "Oxidative stress theory"
+    ],
+    "answer": 0,
+    "rationale": "Modernization theory describes how technological and social change can devalue elders and their contributions.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 3 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 36,
+    "week": 3,
+    "question": "A 78-year-old client needs to learn blood-glucose monitoring. The client processes new information slowly but relates the instructions to decades of meal-planning experience. Which teaching approach is best?",
+    "options": [
+      "Assume reduced fluid intelligence makes learning impossible",
+      "Reduce sensory barriers, teach in manageable steps, connect new learning with existing knowledge and use teach-back",
+      "Provide all instructions rapidly in one session",
+      "Teach only the family because crystallized intelligence declines first"
+    ],
+    "answer": 1,
+    "rationale": "Older adults can learn. Teaching should address sensory needs, pacing and health literacy while building on crystallized knowledge.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 3 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 37,
+    "week": 3,
+    "question": "A recently widowed client reports persistent thoughts of the spouse, while also showing fatigue, reduced appetite and social withdrawal. Which interpretation is most accurate?",
+    "options": [
+      "All findings are affective reactions",
+      "The findings span cognitive, physiological and behavioural dimensions of grief",
+      "The findings confirm dementia",
+      "The findings represent only a health-illness transition"
+    ],
+    "answer": 1,
+    "rationale": "Thoughts of the deceased are cognitive, appetite/energy changes are physiological, and withdrawal is behavioural.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 3 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 38,
+    "week": 3,
+    "question": "An older 2SLGBTQI+ client identifies a close friend as family and is hesitant to discuss the relationship because of past discrimination. Which nursing action is best?",
+    "options": [
+      "Ask only about legal or biological relatives",
+      "Create a welcoming environment, use inclusive questions and clarify the client’s chosen supports and decision-making documents",
+      "Avoid discussing relationships to protect privacy",
+      "Ask the friend to leave permanently"
+    ],
+    "answer": 1,
+    "rationale": "Inclusive, client-directed assessment recognizes chosen family and reduces barriers created by discrimination.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 3 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 39,
+    "week": 3,
+    "question": "Two long-term-care residents with cognitive impairment seek physical intimacy. What is the nurse’s priority?",
+    "options": [
+      "Prohibit all sexual expression in long-term care",
+      "Determine each person’s capacity, understanding, voluntariness, risks and benefits, and document the assessment",
+      "Ask their adult children to consent on their behalf",
+      "Permit the relationship because previous consent remains permanent"
+    ],
+    "answer": 1,
+    "rationale": "Consent requires decision-specific assessment of capacity and voluntary participation. A facility must protect a person who cannot consent.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 3 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 40,
+    "week": 3,
+    "question": "During a home visit, the nurse finds loose rugs, poor stair lighting, extension cords across a walkway and a caregiver who reports exhaustion from managing medications and personal care. Which plan is best?",
+    "options": [
+      "Recommend immediate institutional placement without involving the client",
+      "Develop a collaborative plan that removes hazards, improves lighting and pathways, and connects the caregiver with support and respite resources",
+      "Address caregiver stress but leave the environment unchanged",
+      "Remove the client’s mobility aid so it does not catch on the rugs"
+    ],
+    "answer": 1,
+    "rationale": "The plan addresses immediate environmental risks and caregiver strain while respecting the client’s involvement and goal of remaining at home.",
+    "sourceBank": "Course-content draft informed by public test-bank topics",
+    "courseSupport": "Week 3 PowerPoint and assigned chapter",
+    "matchStatus": "Direct or supported course-content match"
+  },
+  {
+    "id": 41,
+    "week": 1,
+    "question": "During a community assessment, the nurse meets a 69-year-old client. Which course age classification applies most specifically?",
+    "options": [
+      "Middle-old",
+      "Young-old",
+      "Old-old",
+      "Centenarian"
+    ],
+    "answer": 1,
+    "rationale": "Young-old is the classification used in the Week 1 PowerPoint for this age.",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 42,
+    "week": 1,
+    "question": "During a community assessment, the nurse meets a 79-year-old client. Which course age classification applies most specifically?",
+    "options": [
+      "Young-old",
+      "Old-old",
+      "Middle-old",
+      "Centenarian"
+    ],
+    "answer": 2,
+    "rationale": "Middle-old is the classification used in the Week 1 PowerPoint for this age.",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 43,
+    "week": 1,
+    "question": "During a community assessment, the nurse meets a 89-year-old client. Which course age classification applies most specifically?",
+    "options": [
+      "Young-old",
+      "Middle-old",
+      "Centenarian",
+      "Old-old"
+    ],
+    "answer": 3,
+    "rationale": "Old-old is the classification used in the Week 1 PowerPoint for this age.",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 44,
+    "week": 1,
+    "question": "During a community assessment, the nurse meets a 101-year-old client. Which course age classification applies most specifically?",
+    "options": [
+      "Centenarian",
+      "Young-old",
+      "Middle-old",
+      "Old-old"
+    ],
+    "answer": 0,
+    "rationale": "Centenarian is the classification used in the Week 1 PowerPoint for this age.",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 45,
+    "week": 1,
+    "question": "Researchers propose that accumulated random errors in DNA and cellular wear produce visible aging changes. Which theory category are they using?",
+    "options": [
+      "Non-stochastic theory",
+      "Stochastic theory",
+      "Activity theory",
+      "Continuity theory"
+    ],
+    "answer": 1,
+    "rationale": "Stochastic theories explain aging through accumulated random damage, including error, wear-and-tear and oxidative-stress mechanisms.",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 46,
+    "week": 1,
+    "question": "A researcher argues that aging follows a predetermined cellular program rather than accumulating random damage. Which theory category best fits?",
+    "options": [
+      "Stochastic theory",
+      "Activity theory",
+      "Non-stochastic theory",
+      "Continuity theory"
+    ],
+    "answer": 2,
+    "rationale": "Non-stochastic theories describe aging as programmed or predetermined at the cellular level.",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 47,
+    "week": 2,
+    "question": "An older adult has progressive loss of skeletal muscle mass, strength and function and now struggles to rise from a chair. Which term best describes this finding?",
+    "options": [
+      "Xerosis",
+      "Presbycusis",
+      "Keratosis",
+      "Sarcopenia"
+    ],
+    "answer": 3,
+    "rationale": "Sarcopenia is the age-associated loss of skeletal muscle mass, strength and function.",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 48,
+    "week": 1,
+    "question": "After a neurological injury, a client understands questions and writes appropriate answers, but speech is slurred because the speech muscles are weak and poorly coordinated. Which disorder is most likely?",
+    "options": [
+      "Dysarthria",
+      "Aphasia",
+      "Presbycusis",
+      "Sensory overload"
+    ],
+    "answer": 0,
+    "rationale": "Dysarthria is a motor-speech problem; language comprehension can remain intact.",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 49,
+    "week": 1,
+    "question": "Following a stroke, an older client has difficulty producing words, reading and writing even though the client remains alert. Which disorder should the nurse suspect?",
+    "options": [
+      "Dysarthria",
+      "Aphasia",
+      "Presbycusis",
+      "Sensory overload"
+    ],
+    "answer": 1,
+    "rationale": "Aphasia is an acquired language disorder that can affect speaking, understanding, reading and writing.",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 50,
+    "week": 2,
+    "question": "An older adult's lower legs are extremely dry, cracked and itchy without signs of infection. Which condition is most consistent with this assessment?",
+    "options": [
+      "Pruritus",
+      "Herpes zoster",
+      "Xerosis",
+      "Keratosis"
+    ],
+    "answer": 2,
+    "rationale": "abnormal dryness",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 51,
+    "week": 2,
+    "question": "A client with very dry skin scratches repeatedly and develops excoriations. Which term describes the itching symptom?",
+    "options": [
+      "Xerosis",
+      "Herpes zoster",
+      "Keratosis",
+      "Pruritus"
+    ],
+    "answer": 3,
+    "rationale": "itchy sensation, causing excessive scratching.",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 52,
+    "week": 2,
+    "question": "An older adult develops painful grouped vesicles following a single nerve pathway. Which condition is most likely?",
+    "options": [
+      "Herpes zoster",
+      "Xerosis",
+      "Pruritus",
+      "Keratosis"
+    ],
+    "answer": 0,
+    "rationale": "viral infection of nerves",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 53,
+    "week": 2,
+    "question": "A client who has had extensive sun exposure develops a thick, scaly, crusted skin patch. Which finding should the nurse document?",
+    "options": [
+      "Xerosis",
+      "Keratosis",
+      "Pruritus",
+      "Herpes zoster"
+    ],
+    "answer": 1,
+    "rationale": "thick, scaly or crusty patches of skin that are associated with frequent exposure to the sun.",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 54,
+    "week": 2,
+    "question": "A client has a localized thickened area of impacted skin where a tight shoe repeatedly applies pressure. Which foot problem is most likely?",
+    "options": [
+      "Hammer toe",
+      "Fungal infection",
+      "Corn or callus",
+      "Bunion"
+    ],
+    "answer": 2,
+    "rationale": "formed growths of impacted skin that occur as a result of prolonged pressure.",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 55,
+    "week": 2,
+    "question": "A client's second toe is permanently flexed with a claw-like appearance, limiting balance and comfort. Which condition is present?",
+    "options": [
+      "Corn or callus",
+      "Fungal infection",
+      "Bunion",
+      "Hammer toe"
+    ],
+    "answer": 3,
+    "rationale": "permanently flexed toes that have a claw-like appearance.",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 56,
+    "week": 2,
+    "question": "An older adult has thick yellow toenails and scaling between the toes. Which problem best explains these findings?",
+    "options": [
+      "Fungal infection",
+      "Corn or callus",
+      "Hammer toe",
+      "Bunion"
+    ],
+    "answer": 0,
+    "rationale": "usually take the form of a nail fungus and or athlete’s foot.",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 57,
+    "week": 2,
+    "question": "A client has a painful bony prominence at the great-toe joint after years of narrow footwear. Which deformity is most likely?",
+    "options": [
+      "Corn or callus",
+      "Bunion",
+      "Hammer toe",
+      "Fungal infection"
+    ],
+    "answer": 1,
+    "rationale": "bony deformations that develop from the squeezing together of first and second toes.",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 58,
+    "week": 2,
+    "question": "A frail older adult has mild-to-moderate dehydration, cannot maintain adequate oral intake and could avoid hospitalization if isotonic fluid is given subcutaneously. Which therapy is being considered?",
+    "options": [
+      "Oral rehydration",
+      "Intravenous bolus",
+      "Hypodermoclysis",
+      "Fluid restriction"
+    ],
+    "answer": 2,
+    "rationale": "Hypodermoclysis is subcutaneous administration of isotonic fluid and may be used for mild-to-moderate dehydration.",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 59,
+    "week": 2,
+    "question": "An older adult has reduced intake, constipation, dark urine and increased risk for urinary infection. Which underlying problem best links these findings?",
+    "options": [
+      "Fluid overload",
+      "Sarcopenia",
+      "Presbycusis",
+      "Dehydration"
+    ],
+    "answer": 3,
+    "rationale": "Low hydration can contribute to constipation, reduced appetite, altered drug handling and urinary complications.",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 60,
+    "week": 1,
+    "question": "An older client has permanent hearing loss caused by damage to the cochlea and auditory nerve. Which type of hearing loss is present?",
+    "options": [
+      "Sensorineural hearing loss",
+      "Conductive hearing loss",
+      "Presbycusis",
+      "Aphasia"
+    ],
+    "answer": 0,
+    "rationale": "hearing loss due to damage to the inner ear or auditory nerve.",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 61,
+    "week": 1,
+    "question": "A client develops reduced hearing because cerumen and middle-ear fluid prevent sound from reaching the inner ear efficiently. Which type is most likely?",
+    "options": [
+      "Sensorineural hearing loss",
+      "Conductive hearing loss",
+      "Presbycusis",
+      "Aphasia"
+    ],
+    "answer": 1,
+    "rationale": "hearing loss caused by fluid in your middle ear",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 62,
+    "week": 1,
+    "question": "An older adult has gradual, progressive, bilateral difficulty hearing high-frequency consonants. Which condition best fits?",
+    "options": [
+      "Sensorineural hearing loss",
+      "Conductive hearing loss",
+      "Presbycusis",
+      "Aphasia"
+    ],
+    "answer": 2,
+    "rationale": "hearing loss that is typically gradual, progressive and bilateral.",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 63,
+    "week": 3,
+    "question": "A healthy older adult retires from a long career and begins adapting to a new daily role. How should the nurse classify this transition?",
+    "options": [
+      "Situational transition",
+      "Health–illness transition",
+      "Normal physiological aging",
+      "Developmental transition"
+    ],
+    "answer": 3,
+    "rationale": "transitions include retirement or becoming grandparents.",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 3 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 64,
+    "week": 3,
+    "question": "An older adult becomes widowed and unexpectedly moves to a smaller residence. How should the nurse classify these changes?",
+    "options": [
+      "Situational transition",
+      "Developmental transition",
+      "Health–illness transition",
+      "Normal physiological aging"
+    ],
+    "answer": 0,
+    "rationale": "include widowhood, becoming a caregiver or moving to a senior's residence or downsizing.",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 3 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 65,
+    "week": 3,
+    "question": "A client develops heart failure and moves from hospital to home with new nursing supports. How should the nurse classify this change?",
+    "options": [
+      "Developmental transition",
+      "Health–illness transition",
+      "Situational transition",
+      "Normal physiological aging"
+    ],
+    "answer": 1,
+    "rationale": "include chronic illness and the transition between hospital to home or home to long-term care.",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 3 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 66,
+    "week": 3,
+    "question": "A recently widowed client demonstrates depression, anxiety, anger, irritability. Which dimension of grief is the nurse assessing?",
+    "options": [
+      "Cognitive",
+      "Behavioural",
+      "Affective",
+      "Physiological/somatic"
+    ],
+    "answer": 2,
+    "rationale": "Depression, anxiety, anger, irritability are affective manifestations of grief in the Week 3 material.",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 3 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 67,
+    "week": 3,
+    "question": "A recently widowed client demonstrates thoughts of the deceased, helplessness. Which dimension of grief is the nurse assessing?",
+    "options": [
+      "Affective",
+      "Behavioural",
+      "Physiological/somatic",
+      "Cognitive"
+    ],
+    "answer": 3,
+    "rationale": "Thoughts of the deceased, Helplessness are cognitive manifestations of grief in the Week 3 material.",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 3 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 68,
+    "week": 3,
+    "question": "A recently widowed client demonstrates agitation, fatigue, social withdrawal. Which dimension of grief is the nurse assessing?",
+    "options": [
+      "Behavioural",
+      "Affective",
+      "Cognitive",
+      "Physiological/somatic"
+    ],
+    "answer": 0,
+    "rationale": "Agitation, fatigue, social withdrawal are behavioural manifestations of grief in the Week 3 material.",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 3 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 69,
+    "week": 3,
+    "question": "A recently widowed client demonstrates loss of appetite, energy loss. Which dimension of grief is the nurse assessing?",
+    "options": [
+      "Affective",
+      "Physiological/somatic",
+      "Cognitive",
+      "Behavioural"
+    ],
+    "answer": 1,
+    "rationale": "Loss of appetite, Energy loss are physiological/somatic manifestations of grief in the Week 3 material.",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 3 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 70,
+    "week": 2,
+    "question": "A client experiences a sudden compelling urge to void and loses a moderate amount of urine before reaching the toilet. Postvoid residual is low. Which type is most likely?",
+    "options": [
+      "Stress incontinence",
+      "High postvoid-residual incontinence",
+      "Urge incontinence",
+      "Functional incontinence"
+    ],
+    "answer": 2,
+    "rationale": "involuntary urine loss that occurs soon after feeling the urge to void (most common in older adults)",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 71,
+    "week": 2,
+    "question": "A client leaks a small amount of urine while coughing and lifting groceries. Which type of incontinence is most likely?",
+    "options": [
+      "Urge incontinence",
+      "High postvoid-residual incontinence",
+      "Functional incontinence",
+      "Stress incontinence"
+    ],
+    "answer": 3,
+    "rationale": "involuntary loss of less than 50mL of urine during actions that increase intra-abdominal pressure",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 72,
+    "week": 2,
+    "question": "An older man with prostatic enlargement has hesitancy, weak stream, constant dribbling and a large postvoid residual. Which type is most likely?",
+    "options": [
+      "High postvoid-residual incontinence",
+      "Urge incontinence",
+      "Stress incontinence",
+      "Functional incontinence"
+    ],
+    "answer": 0,
+    "rationale": "occurs when the bladder does not empty normally and becomes over- distended. This condition is accompanied by frequent or constant urine loss.",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 73,
+    "week": 2,
+    "question": "A client senses bladder fullness and has normal control, but arthritis and an inaccessible bathroom prevent timely toileting. Which type is most likely?",
+    "options": [
+      "Urge incontinence",
+      "Functional incontinence",
+      "Stress incontinence",
+      "High postvoid-residual incontinence"
+    ],
+    "answer": 1,
+    "rationale": "occurs when the pt is unable to reach the toilet due to barriers or limitations.",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 74,
+    "week": 2,
+    "question": "A client experiences leakage with coughing as well as sudden urgency that cannot be suppressed. Which type is most likely?",
+    "options": [
+      "Urge incontinence",
+      "Stress incontinence",
+      "Mixed incontinence",
+      "High postvoid-residual incontinence"
+    ],
+    "answer": 2,
+    "rationale": "defined as a combination of more than one type of UI. Usually stress and urge.",
+    "sourceBank": "PurposeGames — NURS 2524 Test 1 Review (public 34-item bank)",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct match; wording corrected and converted to an original scenario"
+  },
+  {
+    "id": 75,
+    "week": 1,
+    "question": "A rehabilitation referral is withheld solely because a capable client is 88 years old. Which concept is most clearly demonstrated?",
+    "options": [
+      "Gerontology",
+      "Healthy aging",
+      "Chronological age",
+      "Ageism"
+    ],
+    "answer": 3,
+    "rationale": "Ageism: Negative stereotypes of older individuals",
+    "sourceBank": "OpenRN H5P: care-of-the-older-adult-glossary-cards-2-95",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 76,
+    "week": 1,
+    "question": "A research team studies the biological, psychological, cognitive, cultural and social aspects of aging. Which field describes its work?",
+    "options": [
+      "Gerontology",
+      "Ageism",
+      "Healthy aging",
+      "Chronological age"
+    ],
+    "answer": 0,
+    "rationale": "Gerontology: The study of the social, cultural, psychological, cognitive, and biological aspects of aging.",
+    "sourceBank": "OpenRN H5P: care-of-the-older-adult-glossary-cards-2-95",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 77,
+    "week": 1,
+    "question": "After a stroke, a client has an acquired language disorder affecting speaking and writing. Which term best identifies the disorder?",
+    "options": [
+      "Broca's aphasia",
+      "Aphasia",
+      "Global aphasia",
+      "Nontherapeutic responses"
+    ],
+    "answer": 1,
+    "rationale": "Aphasia: A communication disorder that results from damage to portions of the brain that are responsible for language.",
+    "sourceBank": "OpenRN H5P: communication-glossary-terms-2-61",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 78,
+    "week": 1,
+    "question": "A client understands the nurse and knows what to say but produces short, effortful phrases. Which condition is most likely?",
+    "options": [
+      "Aphasia",
+      "Global aphasia",
+      "Broca's aphasia",
+      "Nontherapeutic responses"
+    ],
+    "answer": 2,
+    "rationale": "Broca's aphasia: A type of aphasia where patients understand speech and know what they want to say, but frequently speak in short phrases that are produced with great effort.",
+    "sourceBank": "OpenRN H5P: communication-glossary-terms-2-61",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 79,
+    "week": 1,
+    "question": "A client has extensive language-area damage and has difficulty both expressing and understanding speech. Which condition is most likely?",
+    "options": [
+      "Aphasia",
+      "Broca's aphasia",
+      "Nontherapeutic responses",
+      "Global aphasia"
+    ],
+    "answer": 3,
+    "rationale": "Global aphasia: A type of aphasia that results from damage to extensive portions of the language areas of the brain and results in difficulty expressing and understanding speech.",
+    "sourceBank": "OpenRN H5P: communication-glossary-terms-2-61",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 80,
+    "week": 1,
+    "question": "When a client expresses fear, the nurse says, 'Don't worry—everything will be fine,' and changes the subject. How should this response be classified?",
+    "options": [
+      "Nontherapeutic responses",
+      "Aphasia",
+      "Broca's aphasia",
+      "Global aphasia"
+    ],
+    "answer": 0,
+    "rationale": "Nontherapeutic responses: Responses to patients that block communication, expression of emotion, or problem solving.",
+    "sourceBank": "OpenRN H5P: communication-glossary-terms-2-61",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 81,
+    "week": 1,
+    "question": "The nurse uses open-ended questions, silence and reflection so an older client can identify concerns and participate in decisions. Which process is being used?",
+    "options": [
+      "Aphasia",
+      "Therapeutic communication",
+      "Broca's aphasia",
+      "Global aphasia"
+    ],
+    "answer": 1,
+    "rationale": "Therapeutic communication: The purposeful, interpersonal information transmitting process through words and behaviors based on both parties’ knowledge, attitudes, and skills, which leads to patient understanding and participation.",
+    "sourceBank": "OpenRN H5P: communication-glossary-terms-2-61",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 82,
+    "week": 1,
+    "question": "An older adult reports progressively cloudy, blurred and dim vision caused by opacity of the lens. Which condition is most likely?",
+    "options": [
+      "Glaucoma",
+      "Macular degeneration",
+      "Cataracts",
+      "Presbyopia"
+    ],
+    "answer": 2,
+    "rationale": "Cataracts: Opacity of the lens of the eye that causes clouded, blurred, or dim vision.",
+    "sourceBank": "OpenRN H5P: sensory-impairment-glossary-cards-2-64",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 83,
+    "week": 1,
+    "question": "An older client has gradual peripheral-vision loss associated with elevated intraocular pressure and optic-nerve damage. Which condition is most likely?",
+    "options": [
+      "Cataracts",
+      "Macular degeneration",
+      "Presbyopia",
+      "Glaucoma"
+    ],
+    "answer": 3,
+    "rationale": "Glaucoma: Gradual loss of peripheral vision caused by elevated intraocular pressure that leads to progressive damage to the optic nerve.",
+    "sourceBank": "OpenRN H5P: sensory-impairment-glossary-cards-2-64",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 84,
+    "week": 1,
+    "question": "A client can see objects at the edge of the visual field but has distorted central vision and difficulty reading. Which condition is most likely?",
+    "options": [
+      "Macular degeneration",
+      "Cataracts",
+      "Glaucoma",
+      "Presbyopia"
+    ],
+    "answer": 0,
+    "rationale": "Macular degeneration: Loss of central vision with symptoms such as blurred central vision, distorted vision that causes difficulty driving and reading, and the requirement for brighter lights and magnification for close-up visual activities.",
+    "sourceBank": "OpenRN H5P: sensory-impairment-glossary-cards-2-64",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 85,
+    "week": 1,
+    "question": "An older adult has age-related, bilateral difficulty hearing high-frequency speech sounds. Which term applies?",
+    "options": [
+      "Tinnitus",
+      "Presbycusis",
+      "Conductive hearing loss",
+      "Aphasia"
+    ],
+    "answer": 1,
+    "rationale": "Presbycusis: Age-related hearing loss.",
+    "sourceBank": "OpenRN H5P: sensory-impairment-glossary-cards-2-64",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 86,
+    "week": 1,
+    "question": "An older adult needs to hold reading material farther away because the lens has lost flexibility and near accommodation. Which condition is most likely?",
+    "options": [
+      "Cataracts",
+      "Glaucoma",
+      "Presbyopia",
+      "Macular degeneration"
+    ],
+    "answer": 2,
+    "rationale": "Presbyopia: The impairment of near vision and accommodation as the lens of the eye gradually becomes thicker and loses flexibility as a person ages.",
+    "sourceBank": "OpenRN H5P: sensory-impairment-glossary-cards-2-64",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 87,
+    "week": 1,
+    "question": "A hospitalized older client with uncorrected hearing and vision loss receives little meaningful stimulation and becomes withdrawn. Which problem is most likely?",
+    "options": [
+      "Sensory overload",
+      "Presbycusis",
+      "Delirium",
+      "Sensory deprivation"
+    ],
+    "answer": 3,
+    "rationale": "Sensory deprivation: A condition that occurs when there is a lack of sensations due to sensory impairments or when the environment has few quality stimuli.",
+    "sourceBank": "OpenRN H5P: sensory-impairment-glossary-cards-2-64",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 88,
+    "week": 1,
+    "question": "An older client becomes anxious and unable to focus in a room with alarms, several conversations and constant interruptions. Which problem is most likely?",
+    "options": [
+      "Sensory overload",
+      "Sensory deprivation",
+      "Presbycusis",
+      "Delirium"
+    ],
+    "answer": 0,
+    "rationale": "Sensory overload: A condition that occurs when an individual receives too many stimuli or cannot selectively filter meaningful stimuli.",
+    "sourceBank": "OpenRN H5P: sensory-impairment-glossary-cards-2-64",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 89,
+    "week": 1,
+    "question": "A client reports persistent ringing in the ears when no external sound is present. Which term describes this symptom?",
+    "options": [
+      "Presbycusis",
+      "Tinnitus",
+      "Conductive hearing loss",
+      "Aphasia"
+    ],
+    "answer": 1,
+    "rationale": "Tinnitus: Hearing ringing in the ears.",
+    "sourceBank": "OpenRN H5P: sensory-impairment-glossary-cards-2-64",
+    "courseSupport": "Week 1 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 90,
+    "week": 2,
+    "question": "An older resident's sleep-wake pattern, body temperature and hormone release follow a daily biological cycle. Which process regulates these patterns?",
+    "options": [
+      "Insomnia",
+      "Sleep apnea",
+      "Circadian rhythms",
+      "Sleep diary"
+    ],
+    "answer": 2,
+    "rationale": "Circadian rhythms: Direct a wide variety of body functions including wakefulness, core temperature, metabolism, and the release of hormones.",
+    "sourceBank": "OpenRN H5P: fundies-sleep-rest-glossary-cards-2-68",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 91,
+    "week": 2,
+    "question": "For several weeks, a client has difficulty falling asleep, awakens repeatedly and reports poor-quality sleep. Which condition is most consistent?",
+    "options": [
+      "Circadian rhythms",
+      "Sleep apnea",
+      "Sleep diary",
+      "Insomnia"
+    ],
+    "answer": 3,
+    "rationale": "Insomnia: A common sleep disorder that causes trouble falling asleep, staying asleep, or getting good quality sleep.",
+    "sourceBank": "OpenRN H5P: fundies-sleep-rest-glossary-cards-2-68",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 92,
+    "week": 2,
+    "question": "A client's upper airway repeatedly closes during sleep, causing loud snoring, pauses in breathing and daytime sleepiness. Which condition is most likely?",
+    "options": [
+      "Sleep apnea",
+      "Circadian rhythms",
+      "Insomnia",
+      "Sleep diary"
+    ],
+    "answer": 0,
+    "rationale": "Sleep apnea: A common sleep condition that occurs when the upper airway becomes repeatedly blocked during sleep, reducing or completely stopping airflow.",
+    "sourceBank": "OpenRN H5P: fundies-sleep-rest-glossary-cards-2-68",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 93,
+    "week": 2,
+    "question": "The nurse asks a client to record bedtime, awakenings, wake time and daytime naps for two weeks. Which assessment tool is being used?",
+    "options": [
+      "Circadian rhythms",
+      "Sleep diary",
+      "Insomnia",
+      "Sleep apnea"
+    ],
+    "answer": 1,
+    "rationale": "Sleep diary: A record of the time a person goes to sleep, wakes up, and takes naps each day for 1-2 weeks.",
+    "sourceBank": "OpenRN H5P: fundies-sleep-rest-glossary-cards-2-68",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 94,
+    "week": 2,
+    "question": "A client has normal bladder control but cannot reach the toilet quickly because of arthritis and environmental barriers. Which condition is present?",
+    "options": [
+      "Overflow incontinence",
+      "Postvoid residual",
+      "Functional incontinence",
+      "Stress urinary incontinence"
+    ],
+    "answer": 2,
+    "rationale": "Functional incontinence: Occurs in older adults who have normal bladder control but have a problem getting to the toilet because of arthritis or other disorders that make it hard to move quickly",
+    "sourceBank": "OpenRN H5P: fundamentals-elimination-glossary-cards-3-94",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 95,
+    "week": 2,
+    "question": "A man with an enlarged prostate has a constantly full bladder, incomplete emptying and frequent small dribbles. Which condition is most likely?",
+    "options": [
+      "Functional incontinence",
+      "Postvoid residual",
+      "Stress urinary incontinence",
+      "Overflow incontinence"
+    ],
+    "answer": 3,
+    "rationale": "Overflow incontinence: Occurs when small amounts of urine leak from a bladder that is always full. This condition tends to occur in males with enlarged prostates that prevent the complete emptying of the bladder.",
+    "sourceBank": "OpenRN H5P: fundamentals-elimination-glossary-cards-3-94",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 96,
+    "week": 2,
+    "question": "After a client voids, the nurse uses a bladder scanner to measure urine remaining in the bladder. What measurement is being obtained?",
+    "options": [
+      "Postvoid residual",
+      "Functional incontinence",
+      "Overflow incontinence",
+      "Stress urinary incontinence"
+    ],
+    "answer": 0,
+    "rationale": "Postvoid residual: A measurement of urine left in the bladder after a patient has voided by using a bladder scanner or straight catheterization.",
+    "sourceBank": "OpenRN H5P: fundamentals-elimination-glossary-cards-3-94",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 97,
+    "week": 2,
+    "question": "A client loses a small amount of urine when laughing, coughing or lifting. Which condition is most likely?",
+    "options": [
+      "Functional incontinence",
+      "Stress urinary incontinence",
+      "Overflow incontinence",
+      "Postvoid residual"
+    ],
+    "answer": 1,
+    "rationale": "Stress urinary incontinence: The involuntary loss of urine on intra-abdominal pressure (e.g., laughing and coughing) or physical exertion (e.g., jumping).",
+    "sourceBank": "OpenRN H5P: fundamentals-elimination-glossary-cards-3-94",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 98,
+    "week": 2,
+    "question": "A client experiences urine leakage immediately after a strong desire to void and cannot suppress the urge. Which condition is most likely?",
+    "options": [
+      "Functional incontinence",
+      "Overflow incontinence",
+      "Urge urinary incontinence",
+      "Postvoid residual"
+    ],
+    "answer": 2,
+    "rationale": "Urge urinary incontinence: Also referred to as “overactive bladder”; urine leakage accompanied by a strong desire to void.",
+    "sourceBank": "OpenRN H5P: fundamentals-elimination-glossary-cards-3-94",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 99,
+    "week": 2,
+    "question": "A client voids small amounts but cannot empty the bladder completely and develops suprapubic fullness. Which condition is most likely?",
+    "options": [
+      "Functional incontinence",
+      "Overflow incontinence",
+      "Postvoid residual",
+      "Urinary retention"
+    ],
+    "answer": 3,
+    "rationale": "Urinary retention: A condition when the patient cannot empty all of the urine from their bladder.",
+    "sourceBank": "OpenRN H5P: fundamentals-elimination-glossary-cards-3-94",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 100,
+    "week": 2,
+    "question": "An immobile client passes hard, dry stool infrequently and strains with incomplete evacuation. Which problem is present?",
+    "options": [
+      "Constipation",
+      "Fecal impaction",
+      "Diarrhea",
+      "Bowel incontinence"
+    ],
+    "answer": 0,
+    "rationale": "Constipation: A decrease in normal frequency of defecation accompanied by difficult or incomplete passage of stool and/or passage of excessively hard, dry stool.",
+    "sourceBank": "OpenRN H5P: fundamentals-elimination-glossary-cards-3-94",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 101,
+    "week": 2,
+    "question": "A bed-bound client with chronic constipation passes liquid stool around a firm rectal mass. Which problem should the nurse suspect before giving an antidiarrheal?",
+    "options": [
+      "Constipation",
+      "Fecal impaction",
+      "Diarrhea",
+      "Bowel incontinence"
+    ],
+    "answer": 1,
+    "rationale": "Fecal impaction: A condition that occurs when stool accumulates in the rectum usually due to the patient not feeling the presence of stool or not using the toilet when the urge is felt.",
+    "sourceBank": "OpenRN H5P: fundamentals-elimination-glossary-cards-3-94",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 102,
+    "week": 2,
+    "question": "The nurse assesses a client's ability to rise from a chair, stand, walk and move safely in bed. Which ability is being evaluated?",
+    "options": [
+      "Orthostatic hypotension",
+      "Timed Get Up and Go Test",
+      "Functional mobility",
+      "Assistive device"
+    ],
+    "answer": 2,
+    "rationale": "Functional mobility: The ability of a person to move around in their environment, including walking, standing up from a chair, sitting down from standing, and moving around in bed.",
+    "sourceBank": "OpenRN H5P: mobility-glossary-cards-2-69",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 103,
+    "week": 2,
+    "question": "A client becomes dizzy and the blood pressure drops after moving from lying to standing. Which condition best explains the finding?",
+    "options": [
+      "Functional mobility",
+      "Timed Get Up and Go Test",
+      "Assistive device",
+      "Orthostatic hypotension"
+    ],
+    "answer": 3,
+    "rationale": "Orthostatic hypotension: Low blood pressure that occurs when a patient changes position from lying to sitting or sitting to standing that causes symptoms of dizziness or light-headedness.",
+    "sourceBank": "OpenRN H5P: mobility-glossary-cards-2-69",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 104,
+    "week": 2,
+    "question": "The nurse times a client rising from an armchair, walking three metres, turning, returning and sitting. Which assessment is being performed?",
+    "options": [
+      "Timed Get Up and Go Test",
+      "Functional mobility",
+      "Orthostatic hypotension",
+      "Assistive device"
+    ],
+    "answer": 0,
+    "rationale": "Timed Get Up and Go Test: A mobility assessment by nurses that begins by having the patient stand up from an armchair, walk three yards, turn, walk back to the chair, and sit down.",
+    "sourceBank": "OpenRN H5P: mobility-glossary-cards-2-69",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 105,
+    "week": 2,
+    "question": "A walker is prescribed to improve a client's safety and independence with ambulation. How should the walker be classified?",
+    "options": [
+      "Functional mobility",
+      "Assistive device",
+      "Orthostatic hypotension",
+      "Timed Get Up and Go Test"
+    ],
+    "answer": 1,
+    "rationale": "Assistive device: An object or piece of equipment designed to help a patient with activities of daily living, such as a walker, cane, gait belt, or mechanical lift.",
+    "sourceBank": "OpenRN H5P: mobility-glossary-cards-2-69",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 106,
+    "week": 2,
+    "question": "An older client coughs with thin fluids and reports that food feels stuck after swallowing. Which problem is most likely?",
+    "options": [
+      "Mastication",
+      "Nutrient-dense foods",
+      "Dysphagia",
+      "Dehydration"
+    ],
+    "answer": 2,
+    "rationale": "Dysphagia: Difficulty swallowing.",
+    "sourceBank": "OpenRN H5P: nutrition-glossary-cards-2-70",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 107,
+    "week": 2,
+    "question": "Poorly fitting dentures prevent a client from adequately chewing food before swallowing. Which process is impaired?",
+    "options": [
+      "Dysphagia",
+      "Nutrient-dense foods",
+      "Dehydration",
+      "Mastication"
+    ],
+    "answer": 3,
+    "rationale": "Mastication: The chewing of food in the mouth.",
+    "sourceBank": "OpenRN H5P: nutrition-glossary-cards-2-70",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 108,
+    "week": 2,
+    "question": "A frail client has a small appetite. The dietitian recommends foods providing substantial vitamins, minerals and protein relative to their calories. How are these foods described?",
+    "options": [
+      "Nutrient-dense foods",
+      "Dysphagia",
+      "Mastication",
+      "Dehydration"
+    ],
+    "answer": 0,
+    "rationale": "Nutrient-dense foods: Foods with a high proportion of nutritional value relative to calories contained in the food.",
+    "sourceBank": "OpenRN H5P: nutrition-glossary-cards-2-70",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 109,
+    "week": 2,
+    "question": "Skin exposed to moisture for a prolonged period becomes pale, soggy and wrinkled. Which condition is present?",
+    "options": [
+      "Friction",
+      "Maceration",
+      "Shear",
+      "Pressure injuries"
+    ],
+    "answer": 1,
+    "rationale": "Maceration: A condition that occurs when skin has been exposed to moisture for too long causing it to appear soggy, wrinkled, or whiter than usual.",
+    "sourceBank": "OpenRN H5P: integumentary-glossary-cards-2-90",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 110,
+    "week": 2,
+    "question": "A client repeatedly rubs the heels against bed linens, removing the superficial skin layer. Which mechanical force caused the injury?",
+    "options": [
+      "Maceration",
+      "Shear",
+      "Friction",
+      "Pressure injuries"
+    ],
+    "answer": 2,
+    "rationale": "Friction: The rubbing of skin against a hard object, such as the bed or the arm of a wheelchair. This rubbing causes heat that can remove the top layer of skin and often results in skin damage.",
+    "sourceBank": "OpenRN H5P: integumentary-glossary-cards-2-90",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 111,
+    "week": 2,
+    "question": "A client slides down in bed while the skin remains against the sheet, stretching and damaging deeper blood vessels. Which force is responsible?",
+    "options": [
+      "Maceration",
+      "Friction",
+      "Pressure injuries",
+      "Shear"
+    ],
+    "answer": 3,
+    "rationale": "Shear: Damage that occurs when tissue layers move over the top of each other, causing blood vessels to stretch and break as they pass through the subcutaneous tissue.",
+    "sourceBank": "OpenRN H5P: integumentary-glossary-cards-2-90",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 112,
+    "week": 2,
+    "question": "An immobile client develops localized skin and soft-tissue damage over the sacrum after prolonged pressure. Which problem is present?",
+    "options": [
+      "Pressure injuries",
+      "Maceration",
+      "Friction",
+      "Shear"
+    ],
+    "answer": 0,
+    "rationale": "Pressure injuries: Localized damage to the skin or underlying soft tissue, usually over a bony prominence, as a result of intense and prolonged pressure in combination with shear.",
+    "sourceBank": "OpenRN H5P: integumentary-glossary-cards-2-90",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 113,
+    "week": 2,
+    "question": "After vomiting and poor intake, an older client has tachycardia, hypotension and reduced intravascular volume. Which condition is most likely?",
+    "options": [
+      "Urine Specific Gravity",
+      "Hypovolemia",
+      "Hypervolemia",
+      "Postvoid residual"
+    ],
+    "answer": 1,
+    "rationale": "Hypovolemia: Intravascular fluid loss. Used interchangeably with “deficient fluid volume” and “dehydration.”",
+    "sourceBank": "OpenRN H5P: fluid-and-electrolyte-glossary-terms-3-93",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 114,
+    "week": 2,
+    "question": "The nurse reviews a urine measurement that reflects particle concentration and helps assess hydration status. Which measurement is this?",
+    "options": [
+      "Hypovolemia",
+      "Hypervolemia",
+      "Urine Specific Gravity",
+      "Postvoid residual"
+    ],
+    "answer": 2,
+    "rationale": "Urine Specific Gravity: A measurement of hydration status that measures the concentration of particles in urine.",
+    "sourceBank": "OpenRN H5P: fluid-and-electrolyte-glossary-terms-3-93",
+    "courseSupport": "Week 2 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 115,
+    "week": 3,
+    "question": "An older 2SLGBTQI+ client is invited to identify chosen family and discuss care without judgment or discrimination. What has the nurse created?",
+    "options": [
+      "Gender identity",
+      "Sexual orientation",
+      "Intersectionality",
+      "Culturally safe environment"
+    ],
+    "answer": 3,
+    "rationale": "Culturally safe environment: A safe space for patients to interact with health professionals, without judgment or discrimination, where the patient is free to express their cultural beliefs, values, and identity.",
+    "sourceBank": "OpenRN H5P: diversity-glossary-terms-3-89",
+    "courseSupport": "Week 3 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 116,
+    "week": 3,
+    "question": "During an inclusive assessment, the nurse asks how the client personally understands and names their gender. Which aspect is being assessed?",
+    "options": [
+      "Gender identity",
+      "Culturally safe environment",
+      "Sexual orientation",
+      "Intersectionality"
+    ],
+    "answer": 0,
+    "rationale": "Gender identity: A person’s inner sensibility that they are a man, a woman, or perhaps neither.",
+    "sourceBank": "OpenRN H5P: diversity-glossary-terms-3-89",
+    "courseSupport": "Week 3 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 117,
+    "week": 3,
+    "question": "The nurse asks an older client, without assumptions, about patterns of emotional and physical attraction. Which aspect is being assessed?",
+    "options": [
+      "Culturally safe environment",
+      "Sexual orientation",
+      "Gender identity",
+      "Intersectionality"
+    ],
+    "answer": 1,
+    "rationale": "Sexual orientation: A person’s physical and emotional interest or desire for others. It is on a continuum and is manifested in one’s self-identity and behaviors.",
+    "sourceBank": "OpenRN H5P: diversity-glossary-terms-3-89",
+    "courseSupport": "Week 3 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 118,
+    "week": 3,
+    "question": "The nurse considers how age, gender, culture, disability and sexual orientation interact to shape one client's care experience. Which concept guides this approach?",
+    "options": [
+      "Culturally safe environment",
+      "Gender identity",
+      "Intersectionality",
+      "Sexual orientation"
+    ],
+    "answer": 2,
+    "rationale": "Intersectionality: The many ways in which a person expresses their cultural identity are closely intertwined and not separated.",
+    "sourceBank": "OpenRN H5P: diversity-glossary-terms-3-89",
+    "courseSupport": "Week 3 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 119,
+    "week": 3,
+    "question": "After several losses, a client says life has no meaning and feels disconnected from self, others and previously sacred beliefs. Which problem is most likely?",
+    "options": [
+      "Spirituality",
+      "Religion",
+      "Spiritual well-being",
+      "Spiritual distress"
+    ],
+    "answer": 3,
+    "rationale": "Spiritual distress: A state of suffering related to the impaired ability to experience meaning in life through connections with self, others, the world, or a superior being.",
+    "sourceBank": "OpenRN H5P: spirituality-glossary-terms-2-74",
+    "courseSupport": "Week 3 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  },
+  {
+    "id": 120,
+    "week": 3,
+    "question": "A client seeks meaning, purpose and connection through family, nature and what the client considers sacred. Which concept is being expressed?",
+    "options": [
+      "Spirituality",
+      "Spiritual distress",
+      "Religion",
+      "Spiritual well-being"
+    ],
+    "answer": 0,
+    "rationale": "Spirituality: A dynamic and intrinsic aspect of humanity through which persons seek ultimate meaning, purpose, and transcendence and experience relationships to self, family, others, community, society, nature, and the significant or sacred.",
+    "sourceBank": "OpenRN H5P: spirituality-glossary-terms-2-74",
+    "courseSupport": "Week 3 PowerPoint and assigned chapter",
+    "matchStatus": "Direct content match; adapted from an openly licensed learning item"
+  }
+];
 
+</script>
+  <script>
+(function () {
+  "use strict";
 
-</body></html>
+  const bank = window.TEST_QUESTIONS || [];
+  const attemptSize = 40;
+  const blueprint = { 1: 12, 2: 18, 3: 10 };
+  let questions = [];
+  const storageKey = "nurs2524-test1-state-v2";
+  const letters = ["A", "B", "C", "D"];
+
+  const el = {
+    welcome: document.querySelector("#welcome"),
+    quiz: document.querySelector("#quiz"),
+    results: document.querySelector("#results"),
+    timer: document.querySelector("#timer"),
+    answeredCount: document.querySelector("#answered-count"),
+    start: document.querySelector("#start-button"),
+    grid: document.querySelector("#question-grid"),
+    weekBadge: document.querySelector("#week-badge"),
+    questionNumber: document.querySelector("#question-number"),
+    questionText: document.querySelector("#question-text"),
+    options: document.querySelector("#options"),
+    feedback: document.querySelector("#feedback"),
+    previous: document.querySelector("#previous-button"),
+    next: document.querySelector("#next-button"),
+    check: document.querySelector("#check-button"),
+    flag: document.querySelector("#flag-button"),
+    clear: document.querySelector("#clear-button"),
+    resultHeading: document.querySelector("#result-heading"),
+    resultSummary: document.querySelector("#result-summary"),
+    weekResults: document.querySelector("#week-results"),
+    reviewButton: document.querySelector("#review-button"),
+    retestButton: document.querySelector("#retest-button"),
+    retryButton: document.querySelector("#retry-button"),
+    reviewList: document.querySelector("#review-list")
+  };
+
+  let state = loadState();
+  let ticker = null;
+
+  function blankState(mode) {
+    return {
+      active: true,
+      completed: false,
+      mode,
+      current: 0,
+      answers: Array(questions.length).fill(null),
+      flagged: Array(questions.length).fill(false),
+      checked: Array(questions.length).fill(false),
+      questionIds: questions.map(item => item.id),
+      startedAt: Date.now(),
+      elapsedBefore: 0
+    };
+  }
+
+  function loadState() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(storageKey));
+      if (saved && Array.isArray(saved.questionIds) && saved.questionIds.length > 0 && saved.questionIds.length <= attemptSize) {
+        const selected = saved.questionIds.map(id => bank.find(item => item.id === id));
+        if (selected.every(Boolean) && Array.isArray(saved.answers) && saved.answers.length === selected.length) {
+          questions = selected;
+          return saved;
+        }
+      }
+    } catch (_) {}
+    return null;
+  }
+
+  function shuffled(items) {
+    const copy = [...items];
+    for (let i = copy.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    return copy;
+  }
+
+  function selectQuestionSet() {
+    const selected = [1, 2, 3].flatMap(week => {
+      const candidates = bank.filter(item => item.week === week);
+      if (candidates.length < blueprint[week]) throw new Error(`Not enough Week ${week} questions in the bank.`);
+      return shuffled(candidates).slice(0, blueprint[week]);
+    });
+    return shuffled(selected);
+  }
+
+  function saveState() {
+    if (state) localStorage.setItem(storageKey, JSON.stringify(state));
+  }
+
+  function elapsedSeconds() {
+    if (!state) return 0;
+    const activeSeconds = state.completed ? 0 : Math.floor((Date.now() - state.startedAt) / 1000);
+    return (state.elapsedBefore || 0) + activeSeconds;
+  }
+
+  function formatTime(total) {
+    const minutes = Math.floor(total / 60).toString().padStart(2, "0");
+    const seconds = Math.floor(total % 60).toString().padStart(2, "0");
+    return `${minutes}:${seconds}`;
+  }
+
+  function updateHeader() {
+    el.timer.textContent = formatTime(elapsedSeconds());
+    const answered = state ? state.answers.filter(value => value !== null).length : 0;
+    el.answeredCount.textContent = `${answered} of ${state ? questions.length : attemptSize} answered`;
+  }
+
+  function startTimer() {
+    clearInterval(ticker);
+    updateHeader();
+    ticker = setInterval(updateHeader, 1000);
+  }
+
+  function show(panel) {
+    el.welcome.hidden = panel !== "welcome";
+    el.quiz.hidden = panel !== "quiz";
+    el.results.hidden = panel !== "results";
+  }
+
+  function startAttempt() {
+    questions = selectQuestionSet();
+    state = blankState("practice");
+    saveState();
+    show("quiz");
+    buildGrid();
+    renderQuestion();
+    startTimer();
+  }
+
+  function buildGrid() {
+    el.grid.innerHTML = "";
+    questions.forEach((_, index) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "grid-button";
+      button.textContent = index + 1;
+      button.setAttribute("aria-label", `Go to question ${index + 1}`);
+      button.addEventListener("click", () => {
+        state.current = index;
+        saveState();
+        renderQuestion();
+      });
+      el.grid.appendChild(button);
+    });
+  }
+
+  function updateGrid() {
+    [...el.grid.children].forEach((button, index) => {
+      button.classList.toggle("current", index === state.current);
+      button.classList.toggle("answered", state.answers[index] !== null);
+      button.classList.toggle("flagged", Boolean(state.flagged[index]));
+      button.setAttribute("aria-current", index === state.current ? "step" : "false");
+    });
+    updateHeader();
+  }
+
+  function renderQuestion() {
+    const index = state.current;
+    const item = questions[index];
+    const isChecked = state.checked[index];
+    el.weekBadge.textContent = `Week ${item.week}`;
+    el.questionNumber.textContent = `Question ${index + 1} of ${questions.length}`;
+    el.questionText.textContent = item.question;
+    el.options.innerHTML = '<legend class="sr-only">Answer choices</legend>';
+
+    item.options.forEach((optionText, optionIndex) => {
+      const label = document.createElement("label");
+      label.className = "option";
+      if (isChecked && optionIndex === item.answer) label.classList.add("correct");
+      if (isChecked && optionIndex === state.answers[index] && optionIndex !== item.answer) label.classList.add("incorrect");
+
+      const input = document.createElement("input");
+      input.type = "radio";
+      input.name = `question-${item.id}`;
+      input.value = optionIndex;
+      input.checked = state.answers[index] === optionIndex;
+      input.disabled = isChecked;
+      input.addEventListener("change", () => {
+        state.answers[index] = optionIndex;
+        saveState();
+        updateGrid();
+      });
+
+      const letter = document.createElement("span");
+      letter.className = "option-letter";
+      letter.textContent = letters[optionIndex];
+      const text = document.createElement("span");
+      text.textContent = optionText;
+      label.append(input, letter, text);
+      el.options.appendChild(label);
+    });
+
+    el.flag.setAttribute("aria-pressed", String(Boolean(state.flagged[index])));
+    el.flag.textContent = state.flagged[index] ? "Flagged for review" : "Flag for review";
+    el.previous.disabled = index === 0;
+    el.next.textContent = index === questions.length - 1 ? "Submit test" : "Next";
+    el.check.hidden = isChecked;
+    el.feedback.hidden = !isChecked;
+    if (isChecked) showFeedback(index);
+    updateGrid();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function showFeedback(index) {
+    const item = questions[index];
+    const correct = state.answers[index] === item.answer;
+    el.feedback.innerHTML = `<strong>${correct ? "Correct" : `Best answer: ${letters[item.answer]}`}</strong><br>${escapeHtml(item.rationale)}`;
+    el.feedback.hidden = false;
+  }
+
+  function checkCurrent() {
+    const index = state.current;
+    if (state.answers[index] === null) {
+      el.feedback.innerHTML = "<strong>Select an answer first.</strong>";
+      el.feedback.hidden = false;
+      return;
+    }
+    state.checked[index] = true;
+    saveState();
+    renderQuestion();
+  }
+
+  function move(delta) {
+    const nextIndex = state.current + delta;
+    if (nextIndex >= 0 && nextIndex < questions.length) {
+      state.current = nextIndex;
+      saveState();
+      renderQuestion();
+    }
+  }
+
+  function submitTest() {
+    const unanswered = state.answers.filter(value => value === null).length;
+    if (unanswered && !window.confirm(`${unanswered} question${unanswered === 1 ? " is" : "s are"} unanswered. Submit anyway?`)) return;
+    state.elapsedBefore = elapsedSeconds();
+    state.completed = true;
+    state.active = false;
+    saveState();
+    clearInterval(ticker);
+    renderResults();
+  }
+
+  function scoreForWeek(week) {
+    const indexes = questions.map((item, index) => item.week === week ? index : -1).filter(index => index >= 0);
+    const correct = indexes.filter(index => state.answers[index] === questions[index].answer).length;
+    return { correct, total: indexes.length };
+  }
+
+  function renderResults() {
+    show("results");
+    updateHeader();
+    const totalCorrect = questions.filter((item, index) => state.answers[index] === item.answer).length;
+    const percent = Math.round((totalCorrect / questions.length) * 100);
+    el.resultHeading.textContent = `${totalCorrect} of ${questions.length} correct`;
+    el.resultSummary.textContent = `Score: ${percent}% · Time: ${formatTime(elapsedSeconds())}. Review the rationales to identify which concepts need another pass.`;
+    el.weekResults.innerHTML = [1, 2, 3].map(week => {
+      const score = scoreForWeek(week);
+      return `<div class="week-result"><span>Week ${week}</span><strong>${score.correct} / ${score.total}</strong></div>`;
+    }).join("");
+    const incorrectCount = questions.filter((item, index) => state.answers[index] !== item.answer).length;
+    el.retestButton.hidden = incorrectCount === 0;
+    el.retestButton.textContent = incorrectCount === 1
+      ? "Retest 1 incorrect answer"
+      : `Retest ${incorrectCount} incorrect answers`;
+    el.reviewList.hidden = true;
+    el.reviewList.innerHTML = "";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function buildReview() {
+    el.reviewList.innerHTML = questions.map((item, index) => {
+      const selected = state.answers[index];
+      const correct = selected === item.answer;
+      const yourAnswer = selected === null ? "No answer" : `${letters[selected]}. ${escapeHtml(item.options[selected])}`;
+      const bestAnswer = `${letters[item.answer]}. ${escapeHtml(item.options[item.answer])}`;
+      return `<article class="review-item ${correct ? "correct" : "incorrect"}">
+        <h3>Question ${index + 1} · Week ${item.week} · ${correct ? "Correct" : "Review"}</h3>
+        <p>${escapeHtml(item.question)}</p>
+        <p><strong>Your answer:</strong> ${yourAnswer}</p>
+        ${correct ? "" : `<p><strong>Best answer:</strong> ${bestAnswer}</p>`}
+        <p class="rationale">${escapeHtml(item.rationale)}</p>
+      </article>`;
+    }).join("");
+    el.reviewList.hidden = false;
+    el.reviewButton.textContent = "Hide answer review";
+  }
+
+  function retestIncorrect() {
+    const incorrect = questions.filter((item, index) => state.answers[index] !== item.answer);
+    if (!incorrect.length) return;
+    questions = shuffled(incorrect);
+    state = blankState("practice");
+    saveState();
+    show("quiz");
+    buildGrid();
+    renderQuestion();
+    startTimer();
+  }
+
+  function resetAttempt() {
+    localStorage.removeItem(storageKey);
+    state = null;
+    questions = [];
+    clearInterval(ticker);
+    el.timer.textContent = "00:00";
+    el.answeredCount.textContent = `0 of ${attemptSize} answered`;
+    show("welcome");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function escapeHtml(value) {
+    return String(value).replace(/[&<>"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[char]);
+  }
+
+  el.start.addEventListener("click", startAttempt);
+  el.previous.addEventListener("click", () => move(-1));
+  el.next.addEventListener("click", () => state.current === questions.length - 1 ? submitTest() : move(1));
+  el.check.addEventListener("click", checkCurrent);
+  el.flag.addEventListener("click", () => {
+    state.flagged[state.current] = !state.flagged[state.current];
+    saveState();
+    renderQuestion();
+  });
+  el.clear.addEventListener("click", () => {
+    if (window.confirm("Clear this attempt and return to the start?")) resetAttempt();
+  });
+  el.retryButton.addEventListener("click", resetAttempt);
+  el.retestButton.addEventListener("click", retestIncorrect);
+  el.reviewButton.addEventListener("click", () => {
+    if (el.reviewList.hidden) buildReview();
+    else {
+      el.reviewList.hidden = true;
+      el.reviewButton.textContent = "Review answers";
+    }
+  });
+
+  if (state && state.completed) renderResults();
+  else if (state && state.active) {
+    show("quiz");
+    buildGrid();
+    renderQuestion();
+    startTimer();
+  } else {
+    show("welcome");
+    updateHeader();
+  }
+})();
+
+</script>
+</body>
+</html>
